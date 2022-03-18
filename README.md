@@ -1,4 +1,4 @@
-###Membros do grupo
+### Membros do grupo
 
 - Vinícius de Lima Mendonça
 - Bruno Macedo Lopes
