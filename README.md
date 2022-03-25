@@ -27,6 +27,6 @@ podendo marcar se foram assistidas ou não.
 - RF1 - O software deve permitir que o usuário cadastre séries
 - RF2 - O software deve permitir a edição dos dados das séries
 - RF3 - O software deve permitir a exclusão das séries
-- RF4 - O software deve permitir que o cadastro de usuário
+- RF4 - O software deve permitir o cadastro de usuário
 - RF5 - O software deve permitir que o usuário entre no sistema
 - RF6 - O software deve permitir que o usuário busque por séries cadastradas
