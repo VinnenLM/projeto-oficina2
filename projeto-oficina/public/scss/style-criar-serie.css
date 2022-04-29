@@ -1,0 +1,91 @@
+html, body {
+  font-family: "Share Tech", sans-serif;
+  background-image: url("https://cdn.pixabay.com/photo/2016/06/03/12/42/popcorn-1433326_960_720.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-blend-mode: color;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.container-principal {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.titulo {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 3rem;
+  padding: 5px 0 0 0;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  background-color: rgba(0, 0, 0, 0.8);
+  background-size: 50% auto;
+  border-radius: 10px;
+  color: white;
+  padding: 15px 20px;
+}
+
+form {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  padding: 15px 20px;
+}
+
+.form-control {
+  padding: 0 0 0 5px;
+}
+
+label {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.botoes {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb {
+  background-color: transparent;
+  padding-left: 0 !important;
+}
+
+.breadcrumb-item {
+  color: white !important;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 15px 20px;
+}
+
+.breadcrumb-item:first-child {
+  padding-right: 0;
+  border-radius: 10px 0 0 10px;
+}
+
+.breadcrumb-item:last-child {
+  padding-left: 0;
+  border-radius: 0 10px 10px 0;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: orange;
+}
+
+button {
+  margin-top: 15px;
+  width: 100px;
+}
+
+/*# sourceMappingURL=style-criar-serie.css.map */

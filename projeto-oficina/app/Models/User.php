@@ -43,4 +43,9 @@ class User extends Authenticatable
     ];
 
     public $timestamps = false;
+
+    public function series()
+    {
+        return $this->hasMany(Serie::class);
+    }
 }

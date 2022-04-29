@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\EpisodiosController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\SeriesController;
+use App\Http\Controllers\TemporadasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,5 +38,12 @@ Route::get('/registrar', [RegistroController::class, 'registrar']);
 Route::post('/registrar', [RegistroController::class, 'criarRegistro']);
 
 Route::get('/series', [SeriesController::class, 'listarSeries'])->middleware(['auth']);
+Route::get('/series/adicionar', [SeriesController::class, 'criarSeries'])->middleware(['auth']);
+Route::post('/series/adicionar', [SeriesController::class, 'salvarSeries'])->middleware(['auth']);
+
+Route::get('/series/{serie_id}/temporadas', [TemporadasController::class, 'listarTemporadas']);
+
+Route::get('/temporadas/{temporada}/episodios', [EpisodiosController::class, 'listarEpisodios']);
+Route::post('/temporadas/{temporada}/episodios/assistidos', [EpisodiosController::class, 'assistidos'])->middleware(['auth']);
 
 require __DIR__.'/auth.php';

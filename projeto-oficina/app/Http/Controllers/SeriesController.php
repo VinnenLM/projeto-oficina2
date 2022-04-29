@@ -2,10 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SeriesRequest;
+use App\Models\Serie;
+use App\Services\CriadorDeSerie;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 class SeriesController extends Controller
 {
-    public function listarSeries()
+    public function listarSeries(Request $request)
     {
-        return view('series/listarSeries');
+
+        $series = Serie::all()->where('user_id', Auth::id())->sortDesc();
+        $mensagem = $request->session()->get('mensagem');
+        return view('series/listarSeries', compact('series', 'mensagem'));
     }
+
+    public function criarSeries()
+    {
+        return view('series/criarSerie');
+    }
+
+    public function salvarSeries(SeriesRequest $request, CriadorDeSerie $criadorDeSerie)
+    {
+        $serie = $criadorDeSerie->criarSerie($request->nome, $request->qtd_temporadas, $request->qtd_episodios, Auth::id());
+        $request->session()->flash('mensagem', "Série {$serie->nome} criada com sucesso!");
+        return redirect('/series');
+    }
+
 }
