@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegistroController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/registrar');
 });
+
+Route::get('/registrar', [RegistroController::class, 'registrar']);
+Route::post('/registrar', [RegistroController::class, 'criarRegistro']);
+
+require __DIR__.'/auth.php';
