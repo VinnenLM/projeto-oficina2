@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistroController;
+use App\Http\Controllers\SeriesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +17,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect('/registrar');
+    if(\Illuminate\Support\Facades\Auth::check()){
+        return redirect('/series');
+    }else{
+        return redirect('/entrar');
+    }
+});
+
+Route::get('/entrar', [LoginController::class, 'entrar']);
+Route::post('/entrar', [LoginController::class, 'logar']);
+
+Route::get('/sair', function () {
+    \Illuminate\Support\Facades\Auth::logout();
+    return redirect('/entrar');
 });
 
 Route::get('/registrar', [RegistroController::class, 'registrar']);
 Route::post('/registrar', [RegistroController::class, 'criarRegistro']);
+
+Route::get('/series', [SeriesController::class, 'listarSeries'])->middleware(['auth']);
 
 require __DIR__.'/auth.php';

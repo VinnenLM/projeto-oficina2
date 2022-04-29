@@ -20,6 +20,31 @@ class UsuarioTest extends TestCase
         ]);
 
         $this->assertAuthenticated();
-        $response->assertRedirect('/registrar');
+        $response->assertRedirect('/series');
+    }
+
+    public function testUsuarioCadastradoLogar()
+    {
+        $user = User::factory()->create();
+
+        $response = $this->post('/entrar', [
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+
+        $this->assertAuthenticated();
+        $response->assertRedirect('/series');
+    }
+
+    public function testUsuarioNaoCadastradoLogar()
+    {
+        $user = User::factory()->create();
+
+        $this->post('/entrar', [
+            'email' => $user->email,
+            'password' => 'password-errado',
+        ]);
+
+        $this->assertGuest();
     }
 }

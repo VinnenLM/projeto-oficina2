@@ -21,6 +21,6 @@ class RegistroController extends Controller
 
         Auth::login($user);
 
-        return redirect('/registrar');
+        return redirect('/series');
     }
 }
