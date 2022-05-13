@@ -40,6 +40,7 @@ Route::post('/registrar', [RegistroController::class, 'criarRegistro']);
 Route::get('/series', [SeriesController::class, 'listarSeries'])->middleware(['auth']);
 Route::get('/series/adicionar', [SeriesController::class, 'criarSeries'])->middleware(['auth']);
 Route::post('/series/adicionar', [SeriesController::class, 'salvarSeries'])->middleware(['auth']);
+Route::delete('/series/{id}', [SeriesController::class, 'excluirSeries'])->middleware(['auth']);
 
 Route::get('/series/{serie_id}/temporadas', [TemporadasController::class, 'listarTemporadas']);
 

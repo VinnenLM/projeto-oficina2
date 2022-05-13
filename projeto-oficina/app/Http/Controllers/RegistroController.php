@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegistroRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -13,7 +14,7 @@ class RegistroController extends Controller
         return view('registrar/registrar');
     }
 
-    public function criarRegistro(Request $request)
+    public function criarRegistro(RegistroRequest $request)
     {
         $data = $request->except('_token');
         $data['password'] = Hash::make($data['password']);

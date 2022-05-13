@@ -28,6 +28,13 @@
             @foreach ($series as $serie)
                 <li class="item-lista">
                     <a id="serie-{{$serie->id}}" href="/series/{{$serie->id}}/temporadas">{{$serie->nome}}</a>
+                    <div class="botoes">
+                        <form action="/series/{{$serie->id}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button onclick="return confirm('Tem certeza?')" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                        </form>
+                    </div>
                 </li>
             @endforeach
         </ul>

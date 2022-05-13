@@ -15,7 +15,7 @@ class RotasTest extends TestCase
     {
         $response = $this->get('/registrar');
 
-        $response->assertStatus(200);
+        $response->assertStatus(s);
     }
 
     public function testVerificarRotaErrada()

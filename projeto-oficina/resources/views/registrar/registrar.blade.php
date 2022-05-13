@@ -14,6 +14,16 @@
 
     <main class="container-principal">
 
+        @if ($errors->any())
+        <div class="alert alert-danger align-items-center">
+            <ul class="mt-0 mb-0">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
         <form method="post">
             @csrf
             <div class="form-group">
