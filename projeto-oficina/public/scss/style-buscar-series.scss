@@ -36,10 +36,6 @@ h1{
     padding: 15px 20px;
 }
 
-main {
-
-}
-
 .lista{
     display: flex;
     margin: 0 auto;
@@ -81,21 +77,7 @@ label{
     font-weight: 400;
 }
 
-.botoes{
-    display: flex;
-    align-items: center;
-}
-
-.botoes>form{
-    display: flex;
-    margin: 0;
-}
-
-.modal{
-    color: black;
-    padding: 0 !important;
-}
-
-#adicionar{
-    height: 100%;
+p{
+    font-size: 25px;
+    font-weight: bold;
 }

@@ -1,9 +1,9 @@
 html {
-  font-family: "Share Tech", sans-serif;
   overflow-y: scroll;
 }
 
 body {
+  font-family: "Share Tech", sans-serif;
   background-image: url("https://cdn.pixabay.com/photo/2016/06/03/12/42/popcorn-1433326_960_720.jpg");
   background-size: 100%;
   background-repeat: no-repeat;

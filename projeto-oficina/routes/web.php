@@ -47,4 +47,6 @@ Route::get('/series/{serie_id}/temporadas', [TemporadasController::class, 'lista
 Route::get('/temporadas/{temporada}/episodios', [EpisodiosController::class, 'listarEpisodios']);
 Route::post('/temporadas/{temporada}/episodios/assistidos', [EpisodiosController::class, 'assistidos'])->middleware(['auth']);
 
+Route::any('/buscar', [\App\Services\BuscadorDeSerie::class, 'buscarSerie']);
+
 require __DIR__.'/auth.php';

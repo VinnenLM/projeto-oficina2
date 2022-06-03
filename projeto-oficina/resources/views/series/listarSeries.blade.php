@@ -25,8 +25,9 @@
         <div class="d-flex justify-content-between">
             <a id="adicionar" href="/series/adicionar" class="btn btn-success" role="button">Adicionar</a>
             <form action="/buscar" method="post">
+                @csrf
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Buscar Série" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <input id="buscar" name="buscar" type="text" class="form-control" placeholder="Buscar Série">
                     <div class="input-group-append">
                         <button class="btn btn-primary"><i class="bi bi-search"></i></button>
                     </div>
