@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SeriesRequest;
 use App\Models\Serie;
+use App\Services\BuscadorDeSerie;
 use App\Services\CriadorDeSerie;
 use App\Services\RemovedorDeSerie;
 use Illuminate\Http\Request;
@@ -36,6 +37,19 @@ class SeriesController extends Controller
         $serieNome = $removedorDeSerie->removerSerie($request->id);
         $request->session()->flash('mensagem', "Série $serieNome removida com sucesso!");
         return redirect('/series');
+    }
+
+    public function buscarSeries(Request $request, BuscadorDeSerie $buscadorDeSerie)
+    {
+        $series = $buscadorDeSerie->buscarSerie($request, Auth::id());
+
+        if ($series == false || count($series) == 0) {
+            $request->session()->flash('mensagem', "Nenhuma série encontrada!");
+            $mensagem = $request->session()->get('mensagem');
+            return view ('series/buscarSeries', compact('mensagem'));
+        } else {
+            return view('series/buscarSeries', compact('series'));
+        }
     }
 
     public function editarSerie($id, Request $request)
