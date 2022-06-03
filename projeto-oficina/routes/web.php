@@ -42,6 +42,8 @@ Route::get('/series/adicionar', [SeriesController::class, 'criarSeries'])->middl
 Route::post('/series/adicionar', [SeriesController::class, 'salvarSeries'])->middleware(['auth']);
 Route::delete('/series/{id}', [SeriesController::class, 'excluirSeries'])->middleware(['auth']);
 
+Route::post('/series/{id}/editarSerie', [SeriesController::class, 'editarSerie'])->middleware(['auth']);
+
 Route::get('/series/{serie_id}/temporadas', [TemporadasController::class, 'listarTemporadas']);
 
 Route::get('/temporadas/{temporada}/episodios', [EpisodiosController::class, 'listarEpisodios']);
